@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动物人格测评</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🐾 动物人格测评</h1>
+      <p class="subtitle">发现你内心深处最像哪种动物</p>
+    </header>
+
+    <!-- 首页 -->
+    <section id="home" class="section active">
+      <div class="home-content">
+        <div class="intro-box">
+          <h2>欢迎来到动物人格测评</h2>
+          <p>通过一系列有趣的问题，我们将帮助你发现你最像哪种动物。</p>
+          <p>包含以下 10 种动物类型：</p>
+          <div class="animal-list">
+            <span>🐱 猫</span>
+            <span>🐶 狗</span>
+            <span>🐭 鼠</span>
+            <span>🐯 虎</span>
+            <span>🐺 狼</span>
+            <span>🐰 兔子</span>
+            <span>🐍 蛇</span>
+            <span>🦫 卡皮巴拉</span>
+            <span>🐨 考拉</span>
+            <span>🦥 树懒</span>
+          </div>
+        </div>
+
+        <div class="choice-buttons">
+          <button id="simpleBtn" class="btn btn-primary">
+            <span class="btn-title">简易版</span>
+            <span class="btn-subtitle">10 道题目</span>
+          </button>
+          <button id="fullBtn" class="btn btn-secondary">
+            <span class="btn-title">完整版</span>
+            <span class="btn-subtitle">50 道题目</span>
+          </button>
+        </div>
+
+        <p class="info-text">💡 选择任一版本开始测评，每页一道题，根据你的真实感受选择答案。</p>
+      </div>
+    </section>
+
+    <!-- 测评页面 -->
+    <section id="quiz" class="section">
+      <div class="quiz-container">
+        <div class="progress-section">
+          <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <p id="progressText" class="progress-text">第 1 / 10 题</p>
+        </div>
+
+        <div class="question-box">
+          <h3 id="questionTitle" class="question-number">题目 1</h3>
+          <p id="questionText" class="question-text"></p>
+
+          <div id="answersContainer" class="answers-grid">
+            <!-- 动态生成 -->
+          </div>
+        </div>
+
+        <div class="nav-buttons">
+          <button id="prevBtn" class="btn btn-outline">← 上一题</button>
+          <button id="nextBtn" class="btn btn-primary">下一题 →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 结果页面 -->
+    <section id="result" class="section">
+      <div class="result-container">
+        <div class="result-card">
+          <h2 class="result-title">你的动物人格类型</h2>
+          
+          <div class="animal-result">
+            <div class="animal-emoji" id="animalEmoji"></div>
+            <h1 id="animalName" class="animal-name"></h1>
+            <p id="animalDesc" class="animal-description"></p>
+          </div>
+
+          <div class="scores-section">
+            <h3>你的四维评分</h3>
+            <div id="scoresContainer" class="scores-grid">
+              <!-- 动态生成 -->
+            </div>
+          </div>
+
+          <div class="chart-section">
+            <h3>四维评分图</h3>
+            <canvas id="radarChart" width="400" height="400"></canvas>
+          </div>
+        </div>
+
+        <div class="result-buttons">
+          <button id="restartBtn" class="btn btn-primary">重新测评</button>
+          <button id="homeBtn" class="btn btn-outline">回到首页</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
