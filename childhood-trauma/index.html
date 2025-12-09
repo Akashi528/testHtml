@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>童年心理创伤测评</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1>童年心理创伤程度测评</h1>
+      <p class="subtitle">选择简易版或完整版。每页一道题，完成后查看八维评分与改善建议（仅供参考）。</p>
+    </header>
+
+    <main class="card">
+      <section id="home" class="view active">
+        <div class="home-hero">
+          <h2>开始测评</h2>
+          <p>请选择测评版本：</p>
+          <div class="choices">
+            <button id="simple" class="btn primary">简易版 · 20题</button>
+            <button id="full" class="btn">完整版 · 80题</button>
+          </div>
+          <div class="note">本测评为自我评估工具，不代替专业诊断。如有严重困扰，请咨询心理专业人士或紧急服务。</div>
+        </div>
+      </section>
+
+      <section id="quiz" class="view">
+        <div class="progress">第 <span id="cur">1</span> / <span id="total">20</span> 题</div>
+        <div class="question-card">
+          <div class="qnum">题目 <span id="qidx">1</span></div>
+          <div class="qtext" id="qtext">加载题目…</div>
+
+          <div class="answers" id="answers">
+            <!-- 选项动态生成 -->
+          </div>
+
+          <div class="nav">
+            <button id="prevBtn" class="btn">上一步</button>
+            <button id="nextBtn" class="btn primary">下一题</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="result" class="view">
+        <div class="result-top">
+          <div class="summary">
+            <h2>测评结果</h2>
+            <p class="lead" id="levelText">你的童年创伤程度：--</p>
+            <p id="advice">改善建议：--</p>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="radar" width="420" height="380"></canvas>
+          </div>
+        </div>
+
+        <div class="dim-list" id="dimList">
+          <!-- 各维度得分显示 -->
+        </div>
+
+        <div class="result-actions">
+          <button id="retry" class="btn primary">重新测评</button>
+          <button id="homeBtn" class="btn">回首页</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">提醒：本工具为自我评估参考，若感到明显不适请联系专业心理咨询。</footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
