@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>自我介绍 · 我的个人主页</title>
+		<meta name="description" content="一个简洁且美观的自我介绍页面，包含简介、技能和联系方式。" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<main class="wrap">
+			<header class="card header-card">
+				<div class="avatar">
+					<!-- 简单的占位头像（SVG） -->
+					<svg viewBox="0 0 120 120" class="avatar-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="头像占位">
+						<defs>
+							<linearGradient id="g" x1="0" x2="1">
+								<stop offset="0" stop-color="#6C5CE7" />
+								<stop offset="1" stop-color="#00B4D8" />
+							</linearGradient>
+						</defs>
+						<rect width="120" height="120" rx="18" fill="url(#g)" />
+						<g fill="#fff" transform="translate(18,18)">
+							<circle cx="42" cy="28" r="18" opacity="0.95" />
+							<rect x="6" y="62" width="72" height="18" rx="9" />
+						</g>
+					</svg>
+				</div>
+				<div class="header-info">
+					<h1 class="name">张三 / Akashi</h1>
+					<p class="tagline">前端工程师 • 热爱交互与性能优化 • 喜欢写 Clean Code</p>
+					<p class="location">北京 · 中国 &nbsp;•&nbsp; 可远程工作</p>
+					<div class="socials">
+						<a href="#contact" class="btn btn-primary">联系我</a>
+						<a href="#about" class="btn btn-ghost">了解更多</a>
+					</div>
+				</div>
+			</header>
+
+			<section id="about" class="card">
+				<h2>关于我</h2>
+				<p>
+					我是张三，一名专注于构建可维护、高性能用户界面的前端开发者。熟悉现代前端生态，拥有组件化开发和性能调优经验，喜欢把复杂的问题拆解成简单的模块并保持良好的代码风格。
+				</p>
+				<div class="highlights">
+					<div class="highlight">
+						<strong>5+</strong>
+						<span>年开发经验</span>
+					</div>
+					<div class="highlight">
+						<strong>React / Vue</strong>
+						<span>组件化开发</span>
+					</div>
+					<div class="highlight">
+						<strong>性能优化</strong>
+						<span>加载与渲染优化</span>
+					</div>
+				</div>
+			</section>
+
+			<section class="card skills">
+				<h2>技能</h2>
+				<ul class="skill-list">
+					<li>
+						<div class="skill-row">
+							<span>HTML / CSS</span>
+							<span class="skill-value">95%</span>
+						</div>
+						<div class="bar"><span style="width:95%"></span></div>
+					</li>
+					<li>
+						<div class="skill-row">
+							<span>JavaScript / TypeScript</span>
+							<span class="skill-value">90%</span>
+						</div>
+						<div class="bar"><span style="width:90%"></span></div>
+					</li>
+					<li>
+						<div class="skill-row">
+							<span>React / Vue</span>
+							<span class="skill-value">85%</span>
+						</div>
+						<div class="bar"><span style="width:85%"></span></div>
+					</li>
+					<li>
+						<div class="skill-row">
+							<span>构建与测试</span>
+							<span class="skill-value">80%</span>
+						</div>
+						<div class="bar"><span style="width:80%"></span></div>
+					</li>
+				</ul>
+			</section>
+
+			<section id="contact" class="card contact">
+				<h2>联系方式</h2>
+				<p>欢迎通过以下方式联系我：我通常在工作日内 24 小时内回复。</p>
+				<ul>
+					<li><strong>Email:</strong> <a href="mailto:akashi@example.com">akashi@example.com</a></li>
+					<li><strong>GitHub:</strong> <a href="https://github.com/Akashi528" target="_blank" rel="noopener">github.com/Akashi528</a></li>
+					<li><strong>微信:</strong> akashi_wechat（工作时段可沟通）</li>
+				</ul>
+			</section>
+
+			<footer class="footer">
+				<p>© <span id="year"></span> 张三 · 以用户为中心 · 代码即诗</p>
+			</footer>
+		</main>
+
+		<script>
+			// 填充当前年份
+			document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+	</body>
+</html>
+
