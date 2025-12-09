@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>心理健康自测</title>
+    <meta name="description" content="20题心理健康自测，提交后显示评分与改善建议。" />
+    <link rel="stylesheet" href="heart.css">
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>心理健康自测（20题）</h1>
+        <p class="lead">逐题选择最近两周最符合你的情况的选项。此为自我评估工具，不替代专业诊断。</p>
+      </header>
+
+      <form id="quizForm" class="card">
+        <div id="questions">
+          <!-- 题目模板：每题一个 fieldset，name=q{n}，每个 option value 为分数 -->
+
+          <fieldset>
+            <legend>1. 过去两周，你感到情绪低落、沮丧或悲伤的频率如何？</legend>
+            <label><input type="radio" name="q1" value="0" required> A. 从不或几乎没有（0分）</label>
+            <label><input type="radio" name="q1" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q1" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q1" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. 过去两周，你对曾经喜欢的活动是否失去兴趣或乐趣？</legend>
+            <label><input type="radio" name="q2" value="0" required> A. 完全没有（0分）</label>
+            <label><input type="radio" name="q2" value="1"> B. 偶尔感觉兴趣下降（1分）</label>
+            <label><input type="radio" name="q2" value="2"> C. 经常感觉兴趣下降（2分）</label>
+            <label><input type="radio" name="q2" value="3"> D. 几乎完全失去兴趣（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>3. 过去两周，你入睡或维持睡眠是否有困难？</legend>
+            <label><input type="radio" name="q3" value="0" required> A. 没有问题（0分）</label>
+            <label><input type="radio" name="q3" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q3" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q3" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>4. 过去两周，你的食欲或体重是否出现明显变化？</legend>
+            <label><input type="radio" name="q4" value="0" required> A. 没有变化（0分）</label>
+            <label><input type="radio" name="q4" value="1"> B. 轻微变化（1分）</label>
+            <label><input type="radio" name="q4" value="2"> C. 明显变化（2分）</label>
+            <label><input type="radio" name="q4" value="3"> D. 非常明显（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>5. 过去两周，你是否感到容易疲劳或精力不足？</legend>
+            <label><input type="radio" name="q5" value="0" required> A. 从不（0分）</label>
+            <label><input type="radio" name="q5" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q5" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q5" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>6. 过去两周，你是否感到容易烦躁或发脾气？</legend>
+            <label><input type="radio" name="q6" value="0" required> A. 从不（0分）</label>
+            <label><input type="radio" name="q6" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q6" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q6" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>7. 过去两周，你是否常常感到焦虑、不安或难以放松？</legend>
+            <label><input type="radio" name="q7" value="0" required> A. 从不（0分）</label>
+            <label><input type="radio" name="q7" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q7" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q7" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>8. 过去两周，你是否出现过惊恐发作（突发强烈恐慌、胸闷、心跳加速等）？</legend>
+            <label><input type="radio" name="q8" value="0" required> A. 没有（0分）</label>
+            <label><input type="radio" name="q8" value="1"> B. 只有一次（1分）</label>
+            <label><input type="radio" name="q8" value="2"> C. 有几次（2分）</label>
+            <label><input type="radio" name="q8" value="3"> D. 频繁发生（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>9. 过去两周，你是否难以集中注意力或做决定？</legend>
+            <label><input type="radio" name="q9" value="0" required> A. 没有这类问题（0分）</label>
+            <label><input type="radio" name="q9" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q9" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q9" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>10. 过去两周，你是否对自己感到价值低或过度自责？</legend>
+            <label><input type="radio" name="q10" value="0" required> A. 从不（0分）</label>
+            <label><input type="radio" name="q10" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q10" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q10" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>11. 过去两周，你是否有逃避社交或减少与他人接触的情况？</legend>
+            <label><input type="radio" name="q11" value="0" required> A. 没有（0分）</label>
+            <label><input type="radio" name="q11" value="1"> B. 稍微减少（1分）</label>
+            <label><input type="radio" name="q11" value="2"> C. 明显减少（2分）</label>
+            <label><input type="radio" name="q11" value="3"> D. 几乎不与人交往（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>12. 过去两周，你是否用酒精、药物或其他方式来缓解情绪或压力？</legend>
+            <label><input type="radio" name="q12" value="0" required> A. 从不（0分）</label>
+            <label><input type="radio" name="q12" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q12" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q12" value="3"> D. 依赖或频繁（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>13. 过去两周，你是否经常出现反复的、难以控制的负面想法或强迫性想法？</legend>
+            <label><input type="radio" name="q13" value="0" required> A. 没有（0分）</label>
+            <label><input type="radio" name="q13" value="1"> B. 偶尔有（1分）</label>
+            <label><input type="radio" name="q13" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q13" value="3"> D. 严重影响日常（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>14. 过去两周，你是否觉得自己完成日常工作/学习变得很困难？</legend>
+            <label><input type="radio" name="q14" value="0" required> A. 没有影响（0分）</label>
+            <label><input type="radio" name="q14" value="1"> B. 轻微影响（1分）</label>
+            <label><input type="radio" name="q14" value="2"> C. 明显影响（2分）</label>
+            <label><input type="radio" name="q14" value="3"> D. 无法完成（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>15. 过去两周，你是否对未来感到绝望或没有希望？</legend>
+            <label><input type="radio" name="q15" value="0" required> A. 完全没有（0分）</label>
+            <label><input type="radio" name="q15" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q15" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q15" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>16. 过去两周，你是否出现生理症状（如头痛、胃痛、心跳加速）而医生检查找不到明显器质原因？</legend>
+            <label><input type="radio" name="q16" value="0" required> A. 没有（0分）</label>
+            <label><input type="radio" name="q16" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q16" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q16" value="3"> D. 严重且反复（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>17. 过去两周，你是否很难控制担忧（即使知道没太大必要仍无法停止）？</legend>
+            <label><input type="radio" name="q17" value="0" required> A. 从不（0分）</label>
+            <label><input type="radio" name="q17" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q17" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q17" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>18. 过去两周，你是否有过自伤或自杀的想法？</legend>
+            <small class="warn">若选择有短暂念头或以上项，请优先参考紧急建议并考虑寻求帮助。</small>
+            <label><input type="radio" name="q18" value="0" required> A. 没有（0分）</label>
+            <label><input type="radio" name="q18" value="2"> B. 有短暂念头，但不会采取行动（2分）</label>
+            <label><input type="radio" name="q18" value="3"> C. 有计划或反复出现（3分）</label>
+            <label><input type="radio" name="q18" value="3"> D. 有实施想法或已经有行为（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>19. 过去两周，你是否觉得自己容易被小事激怒或难以控制情绪？</legend>
+            <label><input type="radio" name="q19" value="0" required> A. 从不（0分）</label>
+            <label><input type="radio" name="q19" value="1"> B. 偶尔（1分）</label>
+            <label><input type="radio" name="q19" value="2"> C. 经常（2分）</label>
+            <label><input type="radio" name="q19" value="3"> D. 几乎每天（3分）</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>20. 过去两周，你是否觉得你有支持系统（家人/朋友/同事）可以求助？</legend>
+            <label><input type="radio" name="q20" value="0" required> A. 有可靠的支持（0分）</label>
+            <label><input type="radio" name="q20" value="3"> B. 没有或很少（3分）</label>
+          </fieldset>
+
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">提交并查看结果</button>
+          <button type="button" id="resetBtn" class="btn ghost">重置</button>
+        </div>
+      </form>
+
+      <section id="result" class="card result" hidden>
+        <h2>测试结果</h2>
+        <p id="summary"></p>
+        <div id="advice"></div>
+        <div class="result-actions">
+          <button id="printBtn" class="btn">打印结果</button>
+          <button id="copyBtn" class="btn">复制结果</button>
+          <a id="backToTop" href="#questions" class="btn ghost">回到题目</a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>注意：本问卷为自我评估工具，如有严重状况请寻求专业帮助或拨打当地紧急电话。</p>
+      </footer>
+    </main>
+
+    <script src="heart.js"></script>
+  </body>
+</html>
