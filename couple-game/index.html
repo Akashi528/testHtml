@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>情侣心跳 — 情侣小游戏</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="stage">
+    <header class="topbar">
+      <h1>情侣心跳</h1>
+      <div class="meta">两人一机，触碰保持心跳同步 ❤</div>
+    </header>
+
+    <section class="play-area">
+      <div class="player left" id="leftBtn" data-side="left">
+        <div class="label">你</div>
+      </div>
+
+      <div class="heart-wrap">
+        <svg id="heartSvg" viewBox="0 0 100 100" class="heart">
+          <path id="heartPath" d="M50 86s-28-20-39-32c-11-12-9-28 4-36 13-8 28 1 35 9 7-8 22-17 35-9 13 8 15 24 4 36-11 12-39 32-39 32z"/>
+        </svg>
+        <div class="pulse-layer" id="pulseLayer"></div>
+      </div>
+
+      <div class="player right" id="rightBtn" data-side="right">
+        <div class="label">TA</div>
+      </div>
+    </section>
+
+    <section class="ui">
+      <div class="row">
+        <button id="startBtn" class="btn primary">开始</button>
+        <button id="resetBtn" class="btn">重置</button>
+        <label class="level-label">关卡
+          <select id="levelSelect" class="level-select">
+            <option value="easy">轻松</option>
+            <option value="normal" selected>普通</option>
+            <option value="hard">挑战</option>
+          </select>
+        </label>
+        <button id="musicToggle" class="btn">音乐：开</button>
+        <div class="score">分数：<span id="score">0</span></div>
+      </div>
+      <div class="row small">
+        <div id="status">准备就绪，左右两侧同时或轮流触碰以同频率点击使心跳共振。</div>
+      </div>
+
+      <div class="leaderboard">
+        <div class="lb-header">高分榜</div>
+        <ol id="leaderList" class="lb-list"></ol>
+        <div class="save-row">
+          <input id="playerName" placeholder="你的名字（保存分数）" />
+          <button id="saveScoreBtn" class="btn">保存分数</button>
+        </div>
+      </div>
+    </section>
+
+    <canvas id="confetti" class="confetti"></canvas>
+    <footer class="footer">支持触摸与点击 · 建议手机竖屏使用</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
