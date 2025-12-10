@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>测测你在《鬼灭之刃》里是哪个柱？</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>测测你在《鬼灭之刃》里是哪个柱？</h1>
+      <p class="subtitle">根据你的选择，会匹配出 9 位柱 + 头柱 炭治郎 中最贴近的一位。选择简易版（20 题）或完整版（60 题）开始吧。</p>
+    </header>
+
+    <section id="home" class="card center">
+      <div class="mode">
+        <button id="start-simple" class="btn primary">开始 — 简易版 20 题</button>
+        <button id="start-full" class="btn accent">开始 — 完整版 60 题</button>
+      </div>
+      <p class="note">每题一页，页面会显示进度与当前题号。测评无需网络或后端，所有逻辑在浏览器中完成。</p>
+    </section>
+
+    <section id="question" class="card hidden">
+      <div class="q-header">
+        <button id="back-home" class="btn link">← 返回主页</button>
+        <div class="progress">题 <span id="q-index">1</span>/<span id="q-total">20</span></div>
+      </div>
+      <div class="q-body">
+        <h2 id="q-text">问题占位</h2>
+        <div id="choices" class="choices"></div>
+      </div>
+      <div class="q-footer">
+        <button id="prev-btn" class="btn">上一步</button>
+        <button id="next-btn" class="btn primary">下一题</button>
+      </div>
+    </section>
+
+    <section id="result" class="card hidden">
+      <h2>测评结果</h2>
+      <div id="result-box" class="result-box">
+        <div class="result-img-container">
+          <img id="result-img" src="assets/images/pillar_1.svg" alt="柱图片"/>
+        </div>
+        <div class="result-info">
+          <h3 id="result-name">柱 名称</h3>
+          <p id="result-desc">描述占位</p>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button id="retake" class="btn">重新测评</button>
+        <button id="share" class="btn link">保存结果（复制）</button>
+      </div>
+    </section>
+
+    <footer class="footer">图片占位文件位于 <code>assets/images/</code>，可用 SVG 或 JPG/PNG 替换；替换方法见项目 README。</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
