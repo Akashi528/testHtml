@@ -1,0 +1,484 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #ff6b9d;
+  --secondary: #a6d1e6;
+  --accent: #ffd166;
+  --dark-bg: #0f1419;
+  --card-bg: #1a1f2e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b8c1;
+  --border-color: #2a3244;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+}
+
+.header h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #ff6b9d, #ffd166);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header .subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+/* 首页样式 */
+.home-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.intro-box {
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(166, 209, 230, 0.1));
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+}
+
+.intro-box h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.intro-box p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.animal-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  font-size: 18px;
+}
+
+.animal-list span {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 10px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.animal-list span:hover {
+  background: rgba(255, 107, 157, 0.15);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.choice-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff6b9d, #ff5685);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ff5685, #ff4073);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #a6d1e6, #7db8d1);
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #7db8d1, #639fbd);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: var(--primary);
+  background: rgba(255, 107, 157, 0.1);
+}
+
+.btn-title {
+  display: block;
+  font-size: 20px;
+}
+
+.btn-subtitle {
+  display: block;
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+.info-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* 测评页面样式 */
+.quiz-container {
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.08), rgba(166, 209, 230, 0.08));
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.progress-section {
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--border-color);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b9d, #ffd166);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  text-align: right;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.question-box {
+  margin-bottom: 30px;
+}
+
+.question-number {
+  color: var(--primary);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.question-text {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: var(--text-primary);
+}
+
+.answers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-option {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.answer-option:hover {
+  background: rgba(255, 107, 157, 0.1);
+  border-color: var(--primary);
+}
+
+.answer-option.selected {
+  background: rgba(255, 107, 157, 0.2);
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+.answer-option input[type="radio"] {
+  margin-right: 12px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.nav-buttons .btn {
+  flex: 1;
+  padding: 12px 20px;
+}
+
+/* 结果页面样式 */
+.result-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.result-card {
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(166, 209, 230, 0.1));
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 30px;
+}
+
+.result-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: var(--text-primary);
+}
+
+.animal-result {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.animal-emoji {
+  font-size: 120px;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animal-name {
+  font-size: 48px;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ff6b9d, #ffd166);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animal-description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.scores-section {
+  margin-bottom: 40px;
+}
+
+.scores-section h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.scores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.score-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.score-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.score-value {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6b9d, #ffd166);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.chart-section {
+  margin-bottom: 30px;
+}
+
+.chart-section h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+#radarChart {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.result-buttons .btn {
+  min-width: 150px;
+}
+
+/* 隐藏/显示section */
+.section {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .header .subtitle {
+    font-size: 16px;
+  }
+
+  .intro-box {
+    padding: 25px;
+  }
+
+  .intro-box h2 {
+    font-size: 24px;
+  }
+
+  .quiz-container {
+    padding: 25px;
+  }
+
+  .question-text {
+    font-size: 18px;
+  }
+
+  .animal-name {
+    font-size: 36px;
+  }
+
+  .animal-emoji {
+    font-size: 80px;
+  }
+
+  .choice-buttons {
+    flex-direction: column;
+  }
+
+  .choice-buttons .btn {
+    width: 100%;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+  }
+
+  .nav-buttons .btn {
+    width: 100%;
+  }
+
+  .animal-list {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .animal-list span {
+    padding: 8px 12px;
+  }
+}
