@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>情侣速配 - 爱情小测试</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>情侣速配 ❤️</h1>
+      <p class="subtitle">做一个有趣的小测试，看看你们的默契与甜蜜分数</p>
+    </header>
+
+    <main class="container">
+      <section class="intro card" id="intro">
+        <h2>玩法简介</h2>
+        <p>这是一个轻松有趣的情侣小游戏，包含 6 个趣味问题与一项快速互动小挑战。每个选择会影响你们的“甜蜜分数”。完成后会给出甜蜜等级与建议。</p>
+        <div class="controls">
+          <button id="startBtn" class="btn primary">开始测试</button>
+          <button id="howBtn" class="btn ghost">查看玩法详情</button>
+        </div>
+      </section>
+
+      <section class="card question-card hidden" id="questionCard">
+        <div class="progress">第 <span id="current">1</span>/<span id="total">6</span></div>
+        <h3 id="qText">问题文本</h3>
+        <div id="choices" class="choices"></div>
+      </section>
+
+      <section class="card result-card hidden" id="resultCard">
+        <div class="result-circle" id="resultCircle">
+          <div class="score" id="scoreText">0%</div>
+        </div>
+        <h3 id="resultTitle">你的甜蜜等级</h3>
+        <p id="resultMsg">结果说明</p>
+        <div class="controls">
+          <button id="retryBtn" class="btn primary">再测一次</button>
+          <button id="shareBtn" class="btn ghost">复制分享文案</button>
+        </div>
+      </section>
+
+      <section class="card mini-game hidden" id="miniGame">
+        <h3>快速互动：捕捉小心心</h3>
+        <p>在 8 秒内点击尽可能多的小心心，得到额外加分！</p>
+        <div class="game-area" id="gameArea"></div>
+        <div class="controls">
+          <button id="playMiniBtn" class="btn primary">开始挑战</button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <small>Made with ❤️ for couples — 轻松、浪漫、有趣</small>
+    </footer>
+  </div>
+
+  <template id="choiceTpl">
+    <button class="choice btn"></button>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
