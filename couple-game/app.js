@@ -99,12 +99,56 @@ function pulse(scaleFactor){ heartScale = Math.min(2, Math.max(0.6, heartScale *
 }
 
 // small spark drawing near heart for positive feedback
-function smallSpark(){ if(!confettiCtx) return; const x = confettiCanvas.width/2; const y = confettiCanvas.height/2; confettiCtx.save(); confettiCtx.fillStyle = 'rgba(255,120,160,0.9)'; for(let i=0;i<8;i++){ const r = 6+Math.random()*8; confettiCtx.beginPath(); confettiCtx.arc(x + (Math.random()-0.5)*40, y + (Math.random()-0.5)*40, r, 0, Math.PI*2); confettiCtx.fill(); } confettiCtx.restore(); setTimeout(()=>{ if(confettiCtx) confettiCtx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height) }, 300);
+// Optimized particle system (pool + requestAnimationFrame)
+const PREFERS_REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let particlePool = [];
+let activeParticles = [];
+let particleAnimId = null;
+let lastFrameTime = 0;
+const DPR = Math.max(1, window.devicePixelRatio || 1);
+
+function ensureCanvasScaled(){ // set backing store size for crisp rendering and performance
+  const w = Math.max(1, Math.floor(innerWidth * DPR));
+  const h = Math.max(1, Math.floor(innerHeight * DPR));
+  if(confettiCanvas.width !== w || confettiCanvas.height !== h){
+    confettiCanvas.width = w;
+    confettiCanvas.height = h;
+    confettiCanvas.style.width = innerWidth + 'px';
+    confettiCanvas.style.height = innerHeight + 'px';
+    confettiCtx = confettiCanvas.getContext('2d');
+    confettiCtx.scale(DPR, DPR);
+  }
 }
 
-function bigConfetti(){ if(!confettiCtx) return; const pieces = []; for(let i=0;i<150;i++){ pieces.push({x:confettiCanvas.width/2, y:confettiCanvas.height/2, vx:(Math.random()-0.5)*8, vy:(Math.random()-4)*6, color:`hsl(${Math.random()*360}deg 80% 60%)`, r:2+Math.random()*4}); }
-  let t = 0; const id = setInterval(()=>{ t++; confettiCtx.fillStyle='rgba(255,255,255,0.04)'; confettiCtx.fillRect(0,0,confettiCanvas.width,confettiCanvas.height); for(const p of pieces){ p.x += p.vx; p.y += p.vy; p.vy += 0.18; confettiCtx.fillStyle = p.color; confettiCtx.fillRect(p.x,p.y,p.r,p.r); } if(t>150){ clearInterval(id); confettiCtx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height); } }, 16);
+function createParticle(x,y,opts={}){
+  const p = particlePool.pop() || {};
+  p.x = x; p.y = y; p.vx = (Math.random()*2-1) * (opts.spread||6); p.vy = (Math.random()*-4-1) * (opts.upward||6);
+  p.size = (opts.size|| (2+Math.random()*4));
+  p.life = opts.life || (60 + Math.random()*60);
+  p.ttl = p.life;
+  p.color = opts.color || `hsl(${Math.floor(Math.random()*360)} 80% 60%)`;
+  p.rotate = Math.random()*Math.PI*2; p.spin = (Math.random()-0.5)*0.2;
+  activeParticles.push(p);
 }
+
+function spawnParticles(x,y,count,opts){ if(PREFERS_REDUCED) count = Math.min(6, count); const concurrency = navigator.hardwareConcurrency || 4; const scale = Math.max(0.5, Math.min(1.5, concurrency/4)); const max = Math.floor(200 * scale); count = Math.min(count, max); for(let i=0;i<count;i++) createParticle(x + (Math.random()-0.5)*20, y + (Math.random()-0.5)*20, opts); startParticleLoop(); }
+
+function startParticleLoop(){ if(particleAnimId) return; lastFrameTime = performance.now(); function frame(t){ lastFrameTime = t; // update
+    // clear with slight fade for trailing effect
+    confettiCtx.clearRect(0,0,confettiCanvas.width/DPR, confettiCanvas.height/DPR);
+    for(let i=activeParticles.length-1;i>=0;i--){ const p = activeParticles[i]; p.x += p.vx; p.y += p.vy; p.vy += 0.15; p.vx *= 0.995; p.rotate += p.spin; p.ttl--; const alpha = Math.max(0, p.ttl / p.life);
+      confettiCtx.save(); confettiCtx.globalAlpha = alpha; confettiCtx.translate(p.x, p.y); confettiCtx.rotate(p.rotate); confettiCtx.fillStyle = p.color; confettiCtx.fillRect(-p.size/2, -p.size/2, p.size, p.size); confettiCtx.restore();
+      if(p.ttl <= 0 || p.y > (confettiCanvas.height/DPR)+80){ particlePool.push(p); activeParticles.splice(i,1); }
+    }
+    if(activeParticles.length>0){ particleAnimId = requestAnimationFrame(frame); } else { particleAnimId = null; }
+  }
+  particleAnimId = requestAnimationFrame(frame);
+}
+
+function smallSpark(){ if(!confettiCtx) return; ensureCanvasScaled(); const x = innerWidth/2; const y = innerHeight/2; spawnParticles(x,y,12,{size:4,life:30,spread:4,upward:3}); }
+
+function bigConfetti(){ if(!confettiCtx) return; if(PREFERS_REDUCED) { smallSpark(); return; } ensureCanvasScaled(); const x = innerWidth/2; const y = innerHeight/2; const concurrency = navigator.hardwareConcurrency || 4; const base = 120; const count = Math.floor(base * Math.min(1.5, Math.max(0.5, concurrency/4))); spawnParticles(x,y,count,{size:3+Math.random()*4,life:100,spread:10,upward:8}); }
+
 
 function startGame(){ if(running) return; running = true; score = 0; lastTap = {side:null,time:0}; const lv = levelSelect.value || 'normal'; baseBeat = LEVELS[lv].base; beatTolerance = LEVELS[lv].tol; updateUI(); statusEl.textContent = '游戏开始！尽量保持稳定且交替触碰。'; vibrate([60,20,60]); }
 function resetGame(){ running = false; score = 0; lastTap = {side:null,time:0}; heartPath.style.transform='scale(1)'; statusEl.textContent = '已重置，点击开始。'; updateUI(); confettiCtx && confettiCtx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height); }
