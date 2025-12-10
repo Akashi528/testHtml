@@ -1,0 +1,54 @@
+/* 美观的全屏卡片布局，渐变背景，简单动画 */
+:root{
+  --bg1:#0f172a;
+  --bg2:#3a1c71;
+  --card:#0b1220cc;
+  --accent:#ff7bac;
+  --glass: rgba(255,255,255,0.06);
+  --text:#e6eef8;
+}
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
+  background: linear-gradient(160deg,var(--bg1),var(--bg2));
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.topbar{position:fixed;top:20px;left:50%;transform:translateX(-50%);text-align:center}
+.topbar h1{margin:0;font-size:20px;letter-spacing:1px}
+.subtitle{font-size:13px;opacity:0.9}
+.page-wrap{width:min(840px,94%);max-width:940px;padding:80px 0}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius:14px;padding:36px;border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px);
+}
+.hidden{display:none}
+.progress{display:flex;align-items:center;gap:12px;font-size:14px;margin-bottom:18px}
+.bar{flex:1;height:8px;background:var(--glass);border-radius:999px;overflow:hidden}
+#bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#7bdff6)}
+.question-area{min-height:220px;display:flex;align-items:center;justify-content:center}
+.question{font-size:20px;line-height:1.6;text-align:center;padding:10px}
+.choices{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.choice{background:transparent;border:2px solid rgba(255,255,255,0.06);color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;min-width:120px;text-align:center;font-weight:600;transition:transform .15s,background .15s}
+.choice:hover{transform:translateY(-6px);background:rgba(255,255,255,0.03)}
+.nav{display:flex;justify-content:space-between;margin-top:22px}
+.nav-btn{background:var(--accent);border:none;color:#081124;padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:700}
+.result-summary{font-size:18px;margin:12px 0}
+.result-advice{background:rgba(255,255,255,0.03);padding:12px;border-radius:8px}
+.result-actions{display:flex;gap:12px;margin-top:18px}
+.result-actions button{padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+#retake{background:#7bdff6;color:#022}
+#download{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--text)}
+.footer{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);opacity:0.8;font-size:12px}
+@media (max-width:520px){
+  .choice{min-width:48%;padding:12px}
+  .question{font-size:18px}
+}
+/* 过渡效果：卡片淡入 */
+.card{animation:cardIn .36s ease}
+@keyframes cardIn{from{transform:translateY(6px);opacity:0}to{transform:none;opacity:1}}

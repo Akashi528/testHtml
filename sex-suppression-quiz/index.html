@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>性压抑自评 — 80题测验</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>性压抑自评量表</h1>
+      <div class="subtitle">80 题 · 男女通用 · 一题一页</div>
+    </header>
+
+    <main class="page-wrap">
+      <section id="question-page" class="card">
+        <div class="progress">
+          <span id="q-index">1</span>/80
+          <div class="bar"><div id="bar-fill"></div></div>
+        </div>
+
+        <div class="question-area">
+          <div id="question-text" class="question"></div>
+        </div>
+
+        <div class="choices">
+          <button class="choice" data-value="0">完全不同意</button>
+          <button class="choice" data-value="1">不同意</button>
+          <button class="choice" data-value="2">中立</button>
+          <button class="choice" data-value="3">同意</button>
+          <button class="choice" data-value="4">非常同意</button>
+        </div>
+
+        <div class="nav">
+          <button id="prev" class="nav-btn">上题</button>
+          <button id="next" class="nav-btn">下一题</button>
+        </div>
+      </section>
+
+      <section id="result-page" class="card hidden">
+        <h2>测验结果</h2>
+        <div id="result-summary" class="result-summary"></div>
+        <div id="result-advice" class="result-advice"></div>
+        <div class="result-actions">
+          <button id="retake">重新测验</button>
+          <button id="download">保存结果（JSON）</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">本测验为非临床筛查工具，仅供自我参考。如有严重困扰，请咨询专业心理/精神健康机构。</footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
