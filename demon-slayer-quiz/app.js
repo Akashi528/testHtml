@@ -554,7 +554,7 @@ function showResult(){
   resultName.textContent = pillar.name;
   resultDesc.textContent = pillar.desc || pillar.short || '';
   // 图片路径模板：assets/images/pillar_{index+1}.svg
-  resultImg.src = `assets/images/pillar_${chosen+1}.jpg`;
+  resultImg.src = `assets/images/pillar_${chosen+1}.png`;
   resultImg.alt = pillar.name;
 }
 
