@@ -11,7 +11,7 @@
 const PILLARS = [
   { id:0, key:'water', name:'水柱 — 富冈义勇', short:'冷静、沉稳、重视正义', desc:'擅长沉着应对与精确的水之呼吸。你重视规则、冷静且富有责任感。'},
   { id:1, key:'flame', name:'火柱 — 煉獄杏寿郎', short:'热血、正义感强、温暖他人', desc:'行动与热情驱动你，你愿为他人挺身而出，有强烈的道德与牺牲精神。'},
-  { id:2, key:'wind', name:'wind', nameCN:'风柱 — 不死川实弥', short:'冲动、力量型、直率', desc:'直来直去，重视实力与结果。你不怕冲突，做事果断而有力。'},
+  { id:2, key:'wind', name:'风柱 — 不死川实弥', nameCN:'风柱 — 不死川实弥', short:'冲动、力量型、直率', desc:'直来直去，重视实力与结果。你不怕冲突，做事果断而有力。'},
   { id:3, key:'sound', name:'音柱 — 宇髄天元', short:'华丽、社交能力强、策略', desc:'爱美与善于布局，行动多面向，擅长在复杂环境中带领队伍。'},
   { id:4, key:'love', name:'恋柱 — 甘露寺蜜璃', short:'热情、感性、重视他人', desc:'以情感为驱动，亲切而富有感染力，常用温暖与关怀影响他人。'},
   { id:5, key:'insect', name:'虫柱 — 胡蝶しのぶ', short:'细致、智谋、擅长知识与毒理', desc:'你用知识与策略解决问题，擅长用巧思化解强敌，理性中含有温柔。'},
@@ -554,7 +554,7 @@ function showResult(){
   resultName.textContent = pillar.name;
   resultDesc.textContent = pillar.desc || pillar.short || '';
   // 图片路径模板：assets/images/pillar_{index+1}.svg
-  resultImg.src = `assets/images/pillar_${chosen+1}.svg`;
+  resultImg.src = `assets/images/pillar_${chosen+1}.jpg`;
   resultImg.alt = pillar.name;
 }
 
